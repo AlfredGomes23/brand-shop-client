@@ -25,7 +25,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex-1">
-                    <a className="normal-case text-2xl">Brand_Shop</a>
+                    <Link to='/' className="normal-case text-2xl"><img className='w-48' src="https://i.ibb.co/XDknKWL/Main-LOGO.png" alt="" /></Link>
                 </div>
             </div>
             {/* nav mid */}
