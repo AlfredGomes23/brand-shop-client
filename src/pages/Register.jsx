@@ -1,7 +1,15 @@
+import { Link } from "react-router-dom";
 import SocialLink from "../components/SocialLink";
 
 
 const Register = () => {
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        const form = e.target;
+        const name = form.name.value, url = form.url.value, email = form.email.value, password = form.password.value;
+        console.log(name, url,email, password);
+    }
     return (
         <div className="hero min-h-screen bg-base-200 rounded-xl">
             <div className="hero-content flex-col">
@@ -9,7 +17,7 @@ const Register = () => {
                     <h1 className="text-5xl font-bold">Register now!</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
-                    <form className="card-body flex flex-col">
+                    <form onSubmit={handleSubmit} className="card-body flex flex-col">
                         {/* name, url */}
                         <div className="flex flex-col md:flex-row gap-5">
                             {/* name */}
@@ -49,12 +57,13 @@ const Register = () => {
                         <div className="mt-3">
                             <input type="checkbox" name="checkbox" id="" required /> <span>Accept our terms and condition</span></div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register</button>
+                            <button className="btn btn-primary w-fit mx-auto">Register</button>
                         </div>
                     </form>
-                    <div className='px-4 py-2 mx-auto'>
+                    <div className='mx-auto'>
+                        <p>Have Account? <Link to='/login' className="link link-primary text-lg">Login Here</Link></p>
                         <SocialLink></SocialLink>
-                        </div>
+                    </div>
                     
                 </div>
             </div>
