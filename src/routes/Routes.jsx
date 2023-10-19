@@ -4,6 +4,13 @@ import {
 import Root from "../layouts/Root";
 import Home from "../pages/Home";
 import ErrorPage from "../pages/ErrorPage";
+import BrandDetails from "../pages/BrandDetails";
+import ProductDetails from "../pages/ProductDetails";
+import AddProduct from "../pages/AddProduct";
+import UpdateProduct from "../pages/UpdateProduct";
+import MyCart from "../pages/MyCart";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 const Routes = createBrowserRouter([
     {
@@ -17,31 +24,31 @@ const Routes = createBrowserRouter([
             },
             {
                 path:'/brandPage',
-                element: <Home></Home>
+                element: <BrandDetails></BrandDetails>
             },
             {
                 path:'/productDetails',
-                element: <Home></Home>
+                element: <ProductDetails></ProductDetails>
             },
             {
                 path:'/addProduct',
-                element: <Home></Home>
+                element: <AddProduct></AddProduct>
             },
             {
                 path:'/updateProduct',
-                element: <Home></Home>
+                element: <UpdateProduct></UpdateProduct>
             },
             {
                 path:'/myCart',
-                element: <Home></Home>
+                element: <MyCart></MyCart>
             },
             {
                 path:'/login',
-                element: <Home></Home>
+                element: <Login></Login>
             },
             {
                 path:'/register',
-                element: <Home></Home>
+                element: <Register></Register>
             },
         ]
     },
