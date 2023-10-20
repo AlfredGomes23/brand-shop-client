@@ -8,7 +8,8 @@ import ProductCard from '../components/ProductCard';
 
 const BrandDetails = () => {
     const { b_id } = useParams();
-    let [brand, setBrand] = useState({})
+    let [brand, setBrand] = useState({});
+    const [products, setProducts] = useState([]);
     useEffect(() => {
         AOS.init({
             duration: 400
@@ -19,8 +20,12 @@ const BrandDetails = () => {
                 const brand = data.find(b => b._id === b_id);
                 brand && setBrand(brand);
             });
+        fetch('http://localhost:5000/products')
+        .then(resp => resp.json())
+        .then(data => setProducts(data));
     }, [b_id]);
 
+    const brandProducts = products.filter(product => product.brand_name === brand.brand_name) || [];
 
     return (
         <div data-aos="zoom-in">
@@ -29,8 +34,9 @@ const BrandDetails = () => {
                 <div className='border lg:w-2/3'><Slider></Slider></div>
             </div>
             <h2 className='text-2xl text-center'>All Products</h2>
-            <div>{
-                <ProductCard></ProductCard>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-base-200 gap-10 py-10'>{
+                brandProducts.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
+                
             }</div>
         </div>
     );
