@@ -7,7 +7,7 @@ const Banner = () => {
         AOS.init({
             duration: 400
         });
-    }, [])
+    }, []);
     return (
         <div className="hero min-h-fit bg-base-200 rounded-xl py-10" data-aos="zoom-in">
             <div className="hero-content text-center">
