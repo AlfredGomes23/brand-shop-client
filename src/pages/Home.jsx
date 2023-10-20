@@ -1,7 +1,7 @@
+import AuthorizedImporter from "../components/AuthorizedImporter";
 import Banner from "../components/Banner";
 import BeAPart from "../components/BeAPart";
 import Brands from "../components/Brands";
-import TechNews from "../components/TechNews";
 
 
 
@@ -10,7 +10,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Brands></Brands>
-            <TechNews></TechNews>
+            <AuthorizedImporter></AuthorizedImporter>
             <BeAPart></BeAPart>
         </div>
     );
