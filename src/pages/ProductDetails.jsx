@@ -20,7 +20,7 @@ const ProductDetails = () => {
             },
             body: JSON.stringify(product)
         })
-            .them(resp => resp.json())
+            .then(resp => resp.json())
             .then(data => {
                 if (data.insertedId)
                     toast.success("Product Added.")

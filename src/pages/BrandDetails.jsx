@@ -30,7 +30,7 @@ const BrandDetails = () => {
     return (
         <div data-aos="zoom-in">
             <div className='flex flex-col lg:flex-row my-10'>
-                <h1 className='text-4xl font-semibold text-center lg:w-1/3'>{brand.brand_name}</h1>
+                <h1 className='text-4xl font-semibold text-center text-primary lg:w-1/3'>{brand.brand_name}</h1>
                 <div className='border lg:w-2/3'><Slider product={brandProducts}></Slider></div>
             </div>
             <h2 className='text-2xl text-center'>All Products</h2>
