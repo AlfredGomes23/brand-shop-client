@@ -31,10 +31,10 @@ const BrandDetails = () => {
         <div data-aos="zoom-in">
             <div className='flex flex-col lg:flex-row my-10'>
                 <h1 className='text-4xl font-semibold text-center lg:w-1/3'>{brand.brand_name}</h1>
-                <div className='border lg:w-2/3'><Slider></Slider></div>
+                <div className='border lg:w-2/3'><Slider product={brandProducts}></Slider></div>
             </div>
             <h2 className='text-2xl text-center'>All Products</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-base-200 gap-10 py-10'>{
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-base-200 gap-5 py-10'>{
                 brandProducts.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
                 
             }</div>
