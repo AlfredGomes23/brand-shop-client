@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
                     </div>
                 </h2>
                 <div className="flex justify-around mb-5 items-center">
-                    <Link to={`/addProduct/${product._id}`} className="btn btn-primary">Details</Link>
+                    <Link to={`/productDetails/${product._id}`} className="btn btn-primary">Details</Link>
                     <Link to={`/updateProduct/${product._id}`} className="btn btn-secondary">Update</Link>
                     <span className="text-primary-focus border border-primary rounded-lg p-1">Rating: {product.rating}</span>
                 </div>

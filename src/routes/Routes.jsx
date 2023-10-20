@@ -5,6 +5,7 @@ import Root from "../layouts/Root";
 import Home from "../pages/Home";
 import ErrorPage from "../pages/ErrorPage";
 import BrandDetails from "../pages/BrandDetails";
+import ProductDetails from "../pages/ProductDetails";
 import AddProduct from "../pages/AddProduct";
 import UpdateProduct from "../pages/UpdateProduct";
 import MyCart from "../pages/MyCart";
@@ -26,11 +27,15 @@ const Routes = createBrowserRouter([
                 element: <BrandDetails></BrandDetails>
             },
             {
-                path:'/addProduct/:p_id',
+                path:'/productDetails/:p_id',
+                element: <ProductDetails></ProductDetails>
+            },
+            {
+                path:'/addProduct',
                 element: <AddProduct></AddProduct>
             },
             {
-                path: '/updateProduct/:p_id',
+                path:'/updateProduct',
                 element: <UpdateProduct></UpdateProduct>
             },
             {
