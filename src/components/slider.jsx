@@ -1,6 +1,6 @@
 
 
-const slider = () => {
+const Slider = () => {
     return (
         <div>
             ad slider
@@ -8,4 +8,4 @@ const slider = () => {
     );
 };
 
-export default slider;
+export default Slider;

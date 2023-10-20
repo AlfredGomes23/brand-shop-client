@@ -23,11 +23,11 @@ const Routes = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path:'/brandPage/:id',
+                path:'/brandPage/:b_id',
                 element: <BrandDetails></BrandDetails>
             },
             {
-                path:'/productDetails/:id',
+                path:'/productDetails/:p_id',
                 element: <ProductDetails></ProductDetails>
             },
             {
