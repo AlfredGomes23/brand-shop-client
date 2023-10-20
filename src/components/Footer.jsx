@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="p-10 text-center">
+        <footer className="py-10 text-center">
             {/* start */}
             <div className="footer mb-3">
             <aside className="mx-auto">
@@ -11,7 +11,7 @@ const Footer = () => {
                 <p>Brand_Shop Ltd.<br />Providing reliable tech since 2002</p>
             </aside>
             {/* mid */}
-            <nav className="mx-auto"><ul className="flex flex-col md:flex-row lg:text-lg gap-5 font-medium link">
+            <nav className="mx-auto"><ul className="flex flex-col md:flex-row gap-5 font-medium link">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/addProduct'>Add Product</Link></li>
                     <li><Link to='/updateProduct'>Update Product</Link></li>

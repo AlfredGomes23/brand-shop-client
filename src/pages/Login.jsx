@@ -35,8 +35,8 @@ const Login = () => {
                         </div>
                     </form>
                     <div className='mx-auto'>
-                        <p>New here? <Link to='/register' className="link link-primary text-lg">Register Here</Link></p>
                         <SocialLink></SocialLink>
+                        <p>New here? <Link to='/register' className="link link-primary text-lg">Register Here</Link></p>
                     </div>
                 </div>
             </div>
