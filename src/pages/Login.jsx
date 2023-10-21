@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import SocialLink from "../components/SocialLink";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import useMyContext from "../hooks/useMyContext";
 
 
@@ -57,7 +57,6 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-            <div><Toaster position="top-right" reverseOrder={true} /></div>
         </div>
     );
 };

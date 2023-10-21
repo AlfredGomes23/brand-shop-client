@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import SocialLink from "../components/SocialLink";
 import useMyContext from "../hooks/useMyContext";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 
 const Register = () => {
@@ -91,7 +91,6 @@ const Register = () => {
 
                 </div>
             </div>
-            <div><Toaster position="top-right" reverseOrder={true} /></div>
         </div>
     );
 };

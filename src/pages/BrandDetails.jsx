@@ -7,9 +7,11 @@ import ProductCard from '../components/ProductCard';
 
 
 const BrandDetails = () => {
-    const { b_id } = useParams();
     let [brand, setBrand] = useState({});
     const [products, setProducts] = useState([]);
+    
+    const { b_id } = useParams();
+
     useEffect(() => {
         AOS.init({
             duration: 400
@@ -33,9 +35,9 @@ const BrandDetails = () => {
         <div data-aos="zoom-in">{
             brandProducts.length == 0 ?
                 <div>
-                    <h1 className='text-4xl font-semibold text-center text-primary'>{brand.brand_name}</h1>
+                    <h1 className='text-4xl font-semibold text-center'>{brand.brand_name}</h1>
                     <br />
-                    <p className='text-4xl font-semibold text-center text-secondary'>No Product Added here</p>
+                    <p className='text-4xl font-semibold text-center text-secondary'>No Product Added.</p>
                 </div> :
                 <div>
                     <div className='flex flex-col lg:flex-row my-10'>
