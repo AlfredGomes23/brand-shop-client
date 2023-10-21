@@ -11,7 +11,7 @@ const Root = () => {
             <Outlet></Outlet>
             <Footer></Footer>
             <div className="font-semibold">
-                <Toaster position="bottom-center" reverseOrder={true} />
+                <Toaster position="top-center" reverseOrder={true} />
             </div>
         </div>
     );

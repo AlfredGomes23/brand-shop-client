@@ -14,7 +14,6 @@ const Footer = () => {
             <nav className="mx-auto"><ul className="flex flex-col md:flex-row gap-5 font-medium link">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/addProduct'>Add Product</Link></li>
-                    <li><Link to='/updateProduct'>Update Product</Link></li>
                     <li><Link to='/myCart'>My Cart</Link></li>
                 </ul></nav>
                 {/* end */}

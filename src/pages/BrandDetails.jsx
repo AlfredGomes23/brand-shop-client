@@ -9,6 +9,7 @@ import Slider from '../components/Slider';
 const BrandDetails = () => {
     let [brand, setBrand] = useState({});
     const [products, setProducts] = useState([]);
+    // const [loading, setLoading] = useState(true);
 
     const { b_id } = useParams();
 
@@ -16,21 +17,26 @@ const BrandDetails = () => {
         AOS.init({
             duration: 400
         });
-        fetch('http://localhost:5000/brands')
+        fetch('https://server-brand-shop-react-auth-mongodb.vercel.app/brands')
             .then(resp => resp.json())
             .then(data => {
                 const brand = data.find(b => b._id === b_id);
                 brand && setBrand(brand);
             });
-        fetch('http://localhost:5000/products')
+        fetch('https://server-brand-shop-react-auth-mongodb.vercel.app/products')
             .then(resp => resp.json())
             .then(data => setProducts(data));
+        // setLoading(false);
     }, [b_id]);
 
-    const brandProducts = products.filter(product => product.brand_name === brand.brand_name) || [];
+    const brandProducts = products.filter(product => product.brand_name == brand.brand_name) || [];
 
 
-
+    // if (loading)
+    //     return <h1 className="flex justify-center flex-col items-center h-[50vh]">
+    //         <span className="loading loading-spinner loading-lg"></span>
+    //         <p className="text-2xl">Loading...</p>
+    //     </h1>;
     return (
         <div data-aos="zoom-in">{
             brandProducts.length == 0 ?
@@ -45,7 +51,7 @@ const BrandDetails = () => {
                     <div className='mx-auto w-fit p-10  bg-base-300 rounded-lg'><Slider products={brandProducts}></Slider>
                     </div>
 
-                    <h2 className='text-2xl text-center'>All Products</h2>
+                    <h2 className='text-4xl text-center my-10'>All Products</h2>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-base-200 gap-5 py-10 rounded-lg mx-auto'>{
                         brandProducts.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
                     }</div>

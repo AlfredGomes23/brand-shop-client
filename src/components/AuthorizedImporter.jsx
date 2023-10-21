@@ -15,7 +15,7 @@ const AuthorizedImporter = () => {
                 <p className="text-xl py-1 px-2 bg-base-100 rounded-lg text-secondary font-semibold" data-aos="fade-in">Samsung</p>
                 <p className="text-xl py-1 px-2 bg-base-100 rounded-lg text-secondary font-semibold" data-aos="fade-in">MicroSoft</p>
                 <p className="text-xl py-1 px-2 bg-base-100 rounded-lg text-secondary font-semibold" data-aos="fade-in">Intel</p>
-                <p className="text-xl py-1 px-2 bg-base-100 rounded-lg text-secondary font-semibold" data-aos="fade-in">AMD</p>
+                <p className="text-xl py-1 px-2 bg-base-100 rounded-lg text-secondary font-semibold" data-aos="fade-in">Amd</p>
             </div>
         </div>
     );

@@ -5,33 +5,38 @@ import toast from "react-hot-toast"
 const ProductDetails = () => {
     const [product, setProduct] = useState({});
     const { p_id } = useParams();
+
     useEffect(() => {
-        fetch('http://localhost:5000/cart')
+        fetch('https://server-brand-shop-react-auth-mongodb.vercel.app/products')
             .then(resp => resp.json())
             .then(data => {
                 setProduct(data.find(p => p._id === p_id) || {});
             });
     }, [p_id]);
+    console.log(p_id, product);
+
     const handleAddCart = () => {
         //checking already added or not
-        fetch('http://localhost:5000/cart')
-        .then(resp => resp.json())
-        .then(data => {
-            const added = data.find(d => d._id === p_id) || null;
-            console.log(added);
-            if(added) {
-                toast.error("Already Added.");
-                return;
-            }
-        });
+        fetch('https://server-brand-shop-react-auth-mongodb.vercel.app/cart')
+            .then(resp => resp.json())
+            .then(data => {
+                const added = data.find(d => d._id === p_id) || null;
+                console.log(added);
+                if (added) {
+                    toast.error("Already Added.");
+                    return;
+                }
+            });
+        const { img, name, brand_name, product_type, price, rating, description } = product;
+        const idLessProduct = { img, name, brand_name, product_type, price, rating, description };
 
         //posting
-        fetch('http://localhost:5000/cart', {
+        fetch('https://server-brand-shop-react-auth-mongodb.vercel.app/cart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(product)
+            body: JSON.stringify(idLessProduct)
         })
             .then(resp => resp.json())
             .then(data => {
@@ -41,7 +46,7 @@ const ProductDetails = () => {
     }
 
     return (
-        <div className="hero min-h-screen rounded-lg" style={{ backgroundImage: `url(${product.img})` }}>
+        <div className="hero lg:min-h-screen rounded-lg" style={{ backgroundImage: `url(${product.img})` }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">

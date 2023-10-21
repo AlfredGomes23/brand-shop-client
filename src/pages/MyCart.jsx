@@ -8,7 +8,7 @@ const MyCart = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/cart')
+        fetch('https://server-brand-shop-react-auth-mongodb.vercel.app/cart')
             .then(resp => resp.json())
             .then(data => setProducts(data))
     }, []);
@@ -25,13 +25,17 @@ const MyCart = () => {
             .then((willDelete) => {
                 if (willDelete) {
                     //delete for db by server
-                    fetch(`http://localhost:5000/cart/${_id}`, {
+                    fetch(`https://server-brand-shop-react-auth-mongodb.vercel.app/cart/${_id}`, {
                         method: 'DELETE'
                     })
                         .then(resp => resp.json())
                         .then(data => {
+                            console.log(data);
                             if (data.deletedCount) {
                                 toast.error("Deleted.");
+                                //update current cart
+                                const remaining = products.filter(product => product._id !== _id);
+                                setProducts(remaining);
                             }
                         });
                     const remaining = products.filter(product => product._id !== _id);

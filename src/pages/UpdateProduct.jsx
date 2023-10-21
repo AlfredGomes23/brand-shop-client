@@ -16,14 +16,14 @@ const UpdateProduct = () => {
         const rating = form.rating.value;
         const updatedProduct = { url, name, brand, type, price, rating };
 
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://server-brand-shop-react-auth-mongodb.vercel.app/products/${id}`, {
             method: 'PUT',
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify(updatedProduct)
         })
-        .then(resp => resp.json())
+            .then(resp => resp.json())
             .then(data => {
                 console.log(data);
                 if (data.modifiedCount) {
@@ -40,7 +40,7 @@ const UpdateProduct = () => {
                 <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit} className="card-body">
                         {/* url & name */}
-                        <div className="flex gap-5">
+                        <div className="flex flex-col md:flex-row gap-5">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Product Image</span>
@@ -55,7 +55,7 @@ const UpdateProduct = () => {
                             </div>
                         </div>
                         {/* brand & type */}
-                        <div className="flex gap-5">
+                        <div className="flex flex-col md:flex-row gap-5">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Brand Name</span>
@@ -70,7 +70,7 @@ const UpdateProduct = () => {
                             </div>
                         </div>
                         {/* price & rating */}
-                        <div className="flex gap-5">
+                        <div className="flex flex-col md:flex-row gap-5">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Price</span>

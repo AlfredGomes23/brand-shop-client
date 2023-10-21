@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily:{
         inter:"Inter",
-        logo:'Tilt Neon'
+        logo:'Pacifico'
       },
     },
   },

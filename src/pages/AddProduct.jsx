@@ -23,34 +23,34 @@ const AddProduct = () => {
         const price = form.price.value;
         const rating = form.rating.value;
         const description = form.description.value;
-        const product = { url, name, brand, type, price, rating, description };
-        
-        fetch('http://localhost:5000/products',{
+        const product = { img: url, name, brand_name: brand, product_type: type, price, rating, description };
+
+        fetch('https://server-brand-shop-react-auth-mongodb.vercel.app/products', {
             method: 'POST',
-            headers:{
+            headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify(product)
         })
-        .then(resp => resp.json())
-        .then(data => {
-            console.log(data);
-            if(data.insertedId)
-            toast.success("Product Added Successfully.");
-        })
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId)
+                    toast.success("Product Added Successfully.");
+            })
     }
-    
+
 
     return (
         <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col">
+            <div className="hero-content flex flex-col md:flex-row -col">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Add Product</h1>
                 </div>
-                <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100" data-aos="flip-up">
+                <div className="card flex flex-col md:flex-row -shrink-0 w-full shadow-2xl bg-base-100" data-aos="flip-up">
                     <form onSubmit={handleSubmit} className="card-body">
                         {/* url & name */}
-                        <div className="flex gap-5">
+                        <div className="flex flex-col md:flex-row  gap-5">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Product Image</span>
@@ -65,7 +65,7 @@ const AddProduct = () => {
                             </div>
                         </div>
                         {/* brand & type */}
-                        <div className="flex gap-5">
+                        <div className="flex flex-col md:flex-row  gap-5">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Brand Name</span>
@@ -80,7 +80,7 @@ const AddProduct = () => {
                             </div>
                         </div>
                         {/* price & rating */}
-                        <div className="flex gap-5">
+                        <div className="flex flex-col md:flex-row  gap-5">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Price</span>
