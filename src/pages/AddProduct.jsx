@@ -43,11 +43,11 @@ const AddProduct = () => {
 
     return (
         <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex flex-col md:flex-row -col">
+            <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Add Product</h1>
                 </div>
-                <div className="card flex flex-col md:flex-row -shrink-0 w-full shadow-2xl bg-base-100" data-aos="flip-up">
+                <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100" data-aos="flip-up">
                     <form onSubmit={handleSubmit} className="card-body">
                         {/* url & name */}
                         <div className="flex flex-col md:flex-row  gap-5">
