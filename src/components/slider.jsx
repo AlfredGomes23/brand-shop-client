@@ -1,6 +1,6 @@
 
 
-const Slider = ({products}) => {
+const Slider = () => {
     return (
         <div>
             ad slider

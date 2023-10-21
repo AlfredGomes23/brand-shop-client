@@ -1,11 +1,10 @@
+import { useContext } from "react";
+import { AuthContext } from "../Provider/authProvider";
 
 
 const useMyContext = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+    const all = useContext(AuthContext);
+    return all;
 };
 
 export default useMyContext;

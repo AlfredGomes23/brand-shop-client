@@ -27,18 +27,29 @@ const BrandDetails = () => {
 
     const brandProducts = products.filter(product => product.brand_name === brand.brand_name) || [];
 
-    return (
-        <div data-aos="zoom-in">
-            <div className='flex flex-col lg:flex-row my-10'>
-                <h1 className='text-4xl font-semibold text-center text-primary lg:w-1/3'>{brand.brand_name}</h1>
-                <div className='border lg:w-2/3'><Slider product={brandProducts}></Slider>
-                </div>
-            </div>
-            <h2 className='text-2xl text-center'>All Products</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-base-200 gap-5 py-10 rounded-lg'>{
-                brandProducts.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
 
-            }</div>
+
+    return (
+        <div data-aos="zoom-in">{
+            brandProducts.length == 0 ?
+                <div>
+                    <h1 className='text-4xl font-semibold text-center text-primary'>{brand.brand_name}</h1>
+                    <br />
+                    <p className='text-4xl font-semibold text-center text-secondary'>No Product Added here</p>
+                </div> :
+                <div>
+                    <div className='flex flex-col lg:flex-row my-10'>
+                        <h1 className='text-4xl font-semibold text-center text-primary lg:w-1/3'>{brand.brand_name}</h1>
+                        <div className='border lg:w-2/3'><Slider product={brandProducts}></Slider>
+                        </div>
+                    </div>
+                    <h2 className='text-2xl text-center'>All Products</h2>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-base-200 gap-5 py-10 rounded-lg'>{
+                        brandProducts.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
+
+                    }</div>
+                </div>
+        }
         </div>
     );
 };

@@ -19,11 +19,13 @@ const Login = () => {
                 <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit} className="card-body">
                         <div className="form-control">
+                            {/* email */}
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
+                        {/* password */}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>

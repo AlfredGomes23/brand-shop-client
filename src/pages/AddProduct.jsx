@@ -36,7 +36,7 @@ const AddProduct = () => {
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Update Product</h1>
+                    <h1 className="text-5xl font-bold">Add Product</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit} className="card-body">

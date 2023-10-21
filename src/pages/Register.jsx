@@ -1,14 +1,37 @@
 import { Link } from "react-router-dom";
 import SocialLink from "../components/SocialLink";
+import useMyContext from "../hooks/useMyContext";
+import toast, { Toaster } from "react-hot-toast";
 
 
 const Register = () => {
+    const { createUser, updateNameUrl } = useMyContext();
     const handleSubmit = e => {
         e.preventDefault();
 
         const form = e.target;
         const name = form.name.value, url = form.url.value, email = form.email.value, password = form.password.value;
-        console.log(name, url,email, password);
+        console.log(name, url, email, password);
+
+        //create user
+        createUser(email, password)
+            .then(r => {
+                console.log(r.user);
+                toast.success("User Registered.");
+                //update user
+                updateNameUrl(name, url)
+                    .then(() => {
+                        toast.success("User Updated.");
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        toast.error("Update Failed.");
+                    })
+            })
+            .catch(err => {
+                console.log(err);
+                toast.error("Registration Failed.");
+            })
     }
     return (
         <div className="hero min-h-screen bg-base-200 rounded-xl">
@@ -64,9 +87,10 @@ const Register = () => {
                         <SocialLink></SocialLink>
                         <p>Have Account? <Link to='/login' className="link link-primary text-lg">Login Here</Link></p>
                     </div>
-                    
+
                 </div>
             </div>
+            <div><Toaster position="top-right" reverseOrder={true} /></div>
         </div>
     );
 };
