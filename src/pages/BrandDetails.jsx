@@ -2,14 +2,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Slider from '../components/slider';
 import ProductCard from '../components/ProductCard';
+import Slider from '../components/Slider';
 
 
 const BrandDetails = () => {
     let [brand, setBrand] = useState({});
     const [products, setProducts] = useState([]);
-    
+
     const { b_id } = useParams();
 
     useEffect(() => {
@@ -37,16 +37,16 @@ const BrandDetails = () => {
                 <div>
                     <h1 className='text-4xl font-semibold text-center'>{brand.brand_name}</h1>
                     <br />
-                    <p className='text-4xl font-semibold text-center text-secondary'>No Product Added.</p>
+                    <p className='text-4xl font-semibold text-center text-secondary'>No Product Available Yet.</p>
                 </div> :
                 <div>
-                    <div className='flex flex-col lg:flex-row my-10'>
-                        <h1 className='text-4xl font-semibold text-center text-primary lg:w-1/3'>{brand.brand_name}</h1>
-                        <div className='border lg:w-2/3'><Slider product={brandProducts}></Slider>
-                        </div>
+                    <h1 className='text-4xl font-semibold text-primary text-center py-5'>{brand.brand_name}</h1>
+
+                    <div className='mx-auto w-fit p-10  bg-base-300 rounded-lg'><Slider products={brandProducts}></Slider>
                     </div>
+
                     <h2 className='text-2xl text-center'>All Products</h2>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-base-200 gap-5 py-10 rounded-lg'>{
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-base-200 gap-5 py-10 rounded-lg mx-auto'>{
                         brandProducts.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
                     }</div>
                 </div>

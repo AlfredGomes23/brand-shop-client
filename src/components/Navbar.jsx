@@ -9,7 +9,7 @@ const Navbar = () => {
     const { user, logOut } = useMyContext();
 
     //theme toggle
-    const [darkMood, setDarkMood] = useState(true);
+    const [darkMood, setDarkMood] = useState(false);
     const website = document.getElementById('html');
     if (darkMood) website.setAttribute('data-theme', 'dark');
     else website.setAttribute('data-theme', 'light');
