@@ -14,7 +14,7 @@ const BrandCard = ({ brand }) => {
     }, []);
 
     return (
-        <Link to={`/brandPage/${_id}`} className="card w-72 bg-base-100 shadow-xl mx-auto" data-aos="zoom-out">
+        <Link to={`/brandPage/${_id}`} className="card w-72 bg-base-100 shadow-xl mx-auto"  >
             <figure className="px-5 pt-10">
                 <img src={brand_img} alt={brand_name} className="rounded-xl h-28" />
             </figure>

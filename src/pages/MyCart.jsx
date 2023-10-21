@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 
 const MyCart = () => {
     const [products, setProducts] = useState([]);
+
     useEffect(() => {
         fetch('http://localhost:5000/cart')
             .then(resp => resp.json())
@@ -13,8 +14,6 @@ const MyCart = () => {
     }, []);
 
     const handleDelete = _id => {
-        // console.log(_id);
-
         //sweetheart for confirmation
         swal({
             title: "Are you sure?",
