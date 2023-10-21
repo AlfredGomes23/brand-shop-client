@@ -2,16 +2,30 @@ import { Link } from "react-router-dom";
 import SocialLink from "../components/SocialLink";
 import useMyContext from "../hooks/useMyContext";
 import toast from "react-hot-toast";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 const Register = () => {
     const { createUser, updateNameUrl } = useMyContext();
+    useEffect(() => {
+        AOS.init({
+            duration: 400
+        });
+    }, [])
     const handleSubmit = e => {
         e.preventDefault();
 
         const form = e.target;
         const name = form.name.value, url = form.url.value, email = form.email.value, password = form.password.value;
         // console.log(name, url, email, password);
+
+        //password validation
+        if (!/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z!@#$%^&*()_+]{6,}$/.test(password)) {
+            toast.error("Password must contain at least 6 characters including  a Upper Letter and Special Character.")
+            return;
+        }
 
         //create user
         createUser(email, password)
@@ -40,7 +54,7 @@ const Register = () => {
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register now!</h1>
                 </div>
-                <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100" data-aos="flip-right">
                     <form onSubmit={handleSubmit} className="card-body flex flex-col">
                         {/* name, url */}
                         <div className="flex flex-col md:flex-row gap-5">
@@ -78,7 +92,7 @@ const Register = () => {
                             </div>
                             {/* checkbox */}
                         </div>
-                        <div className="mt-3">
+                        <div className="mt-3 mx-auto">
                             <input type="checkbox" name="checkbox" id="" required /> <span>Accept our terms and condition</span></div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary w-fit mx-auto">Register</button>
@@ -86,7 +100,7 @@ const Register = () => {
                     </form>
                     <div className='mx-auto'>
                         <SocialLink></SocialLink>
-                        <p>Have Account? <Link to='/login' className="link link-primary text-lg">Login Here</Link></p>
+                        <p className="font-semibold">Have Account? <Link to='/login' className="link link-primary text-lg">Login Here</Link></p>
                     </div>
 
                 </div>

@@ -28,7 +28,7 @@ const ProductDetails = () => {
     }
 
     return (
-        <div className="hero min-h-screen" style={{ backgroundImage: `url(${product.img})` }}>
+        <div className="hero min-h-screen rounded-lg" style={{ backgroundImage: `url(${product.img})` }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
@@ -36,7 +36,7 @@ const ProductDetails = () => {
                     <h1 className="mb-5 text-5xl font-bold">
                         {product.name}
                         <span className="badge badge-secondary ml-3">${product.price}</span>
-                        <span className="text-primary text-xl border border-primary p-1 rounded-lg ml-3">{product.product_type}</span>
+                        <span className="text-xl border border-primary p-1 rounded-lg ml-3">{product.product_type}</span>
                         <span className="text-base text-amber-400 ml-10">Rating: {product.rating}</span>
                     </h1>
                     <p className="mb-5 text-lg">{product.description}</p>

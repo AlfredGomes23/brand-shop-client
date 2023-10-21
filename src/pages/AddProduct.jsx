@@ -1,8 +1,17 @@
 import toast, { Toaster } from "react-hot-toast";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 
 const AddProduct = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 400
+        });
+    }, []);
+
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
@@ -38,7 +47,7 @@ const AddProduct = () => {
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Add Product</h1>
                 </div>
-                <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100" data-aos="flip-up">
                     <form onSubmit={handleSubmit} className="card-body">
                         {/* url & name */}
                         <div className="flex gap-5">
@@ -100,7 +109,7 @@ const AddProduct = () => {
             </div>
             <div><Toaster
                 position="top-right"
-                reverseOrder={false}
+                reverseOrder={true}
             /></div>
         </div>
     );

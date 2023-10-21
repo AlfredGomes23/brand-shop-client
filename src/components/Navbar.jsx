@@ -19,7 +19,7 @@ const Navbar = () => {
         logOut()
         .then(() => {
             console.log("LogOut done.");
-            toast.success("LogOut Successful.")
+            toast.success("LogOut Successful.");
         })
         .catch(err => {
             console.log(err);
@@ -40,7 +40,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex-1">
-                    <Link to='/' className="normal-case text-2xl"><img className='w-48' src="https://i.ibb.co/XDknKWL/Main-LOGO.png" alt="" /></Link>
+                    <Link to='/' className="normal-case text-2xl"><img className='w-48 rounded-lg' src="https://i.ibb.co/XDknKWL/Main-LOGO.png" alt="" /></Link>
                 </div>
             </div>
             {/* nav mid */}
@@ -75,6 +75,7 @@ const Navbar = () => {
             <Toaster
                 position="top-center"
                 reverseOrder={false}
+                
             />
         </div>
 

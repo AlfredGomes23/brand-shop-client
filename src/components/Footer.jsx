@@ -7,7 +7,7 @@ const Footer = () => {
             {/* start */}
             <div className="footer mb-3">
             <aside className="mx-auto">
-                    <img className='w-48' src="https://i.ibb.co/XDknKWL/Main-LOGO.png" alt="" />
+                    <img className='w-48 rounded-lg' src="https://i.ibb.co/XDknKWL/Main-LOGO.png" alt="" />
                 <p>Brand_Shop Ltd.<br />Providing reliable tech since 2002</p>
             </aside>
             {/* mid */}
@@ -30,7 +30,7 @@ const Footer = () => {
             </nav>
             </div>
             {/* bottom */}
-            <aside className="text-center bg-neutral text-neutral-content">
+            <aside className="text-center bg-neutral text-neutral-content rounded-md">
                 <p>Copyright © 2023 - All right reserved by Brand_Shop Ltd</p>
             </aside>
         </footer>

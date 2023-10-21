@@ -1,11 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLink from "../components/SocialLink";
 import toast from "react-hot-toast";
 import useMyContext from "../hooks/useMyContext";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 const Login = () => {
     const { emailSignIn } = useMyContext();
+    
+    useEffect(() => {
+        AOS.init({
+            duration: 400
+        });
+    }, []);
+
+    //managing auto routing
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || '/';
+
     const handleSubmit = e => {
         e.preventDefault();
 
@@ -18,6 +33,9 @@ const Login = () => {
             .then(r => {
                 console.log(r.user);
                 toast.success("Login Successful.");
+
+                //navigate to previous route
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 console.log(err);
@@ -31,7 +49,7 @@ const Login = () => {
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                 </div>
-                <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100" data-aos="flip-left">
                     <form onSubmit={handleSubmit} className="card-body">
                         <div className="form-control">
                             {/* email */}
@@ -53,7 +71,7 @@ const Login = () => {
                     </form>
                     <div className='mx-auto'>
                         <SocialLink></SocialLink>
-                        <p>New here? <Link to='/register' className="link link-primary text-lg">Register Here</Link></p>
+                        <p className="font-semibold">New Here? <Link to='/register' className="link link-primary text-lg">Register Here</Link></p>
                     </div>
                 </div>
             </div>
