@@ -1,16 +1,30 @@
 import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
+import useMyContext from '../hooks/useMyContext';
 
 
 const Navbar = () => {
     const [darkMood, setDarkMood] = useState(true);
-    const [user, setUser] = useState(true);
+    const { user, logOut } = useMyContext()
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/addProduct'>Add Product</NavLink></li>
         <li><NavLink to='/myCart'>My Cart</NavLink></li>
     </>
+
+    const handleLogOut = () => {
+        logOut()
+        .then(() => {
+            console.log("LogOut done.");
+            toast.success("LogOut Successful.")
+        })
+        .catch(err => {
+            console.log(err);
+            toast.error("LogOut Failed.");
+        })
+    }
     return (
         <div className="navbar bg-base-100 flex justify-between font-semibold">
             {/* nav start */}
@@ -43,7 +57,6 @@ const Navbar = () => {
                 }</div>
                 <div className='menu'>{
                     user ?
-                        <li><NavLink to='/login'>Login</NavLink></li> :
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
@@ -52,11 +65,16 @@ const Navbar = () => {
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><Link>Name</Link></li>
-                                <li><Link>Logout</Link></li>
+                                <li onClick={handleLogOut}><Link>Logout</Link></li>
                             </ul>
-                        </div>
+                        </div>:
+                        <li><NavLink to='/login'>Login</NavLink></li>
                 }</div>
             </div>
+            <Toaster
+                position="top-right"
+                reverseOrder={false}
+            />
         </div>
 
     );

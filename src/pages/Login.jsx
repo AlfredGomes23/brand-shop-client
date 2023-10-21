@@ -1,14 +1,29 @@
 import { Link } from "react-router-dom";
 import SocialLink from "../components/SocialLink";
+import toast, { Toaster } from "react-hot-toast";
+import useMyContext from "../hooks/useMyContext";
 
 
 const Login = () => {
+    const { emailSignIn } = useMyContext();
     const handleSubmit = e => {
         e.preventDefault();
 
         const form = e.target;
         const email = form.email.value, password = form.password.value;
         console.log(email, password);
+
+        //log in by email
+        emailSignIn(email, password)
+            .then(r => {
+                console.log(r.user);
+                toast.success("Login Successful.");
+            })
+            .catch(err => {
+                console.log(err);
+                toast.error("Login Unsuccessful.");
+            })
+
     }
     return (
         <div className="hero min-h-screen bg-base-200 rounded-lg">
@@ -42,6 +57,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <div><Toaster position="top-right" reverseOrder={true} /></div>
         </div>
     );
 };

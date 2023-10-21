@@ -11,7 +11,7 @@ const Register = () => {
 
         const form = e.target;
         const name = form.name.value, url = form.url.value, email = form.email.value, password = form.password.value;
-        console.log(name, url, email, password);
+        // console.log(name, url, email, password);
 
         //create user
         createUser(email, password)
@@ -22,10 +22,11 @@ const Register = () => {
                 updateNameUrl(name, url)
                     .then(() => {
                         toast.success("User Updated.");
+                        // console.log("User Updated.");
                     })
                     .catch(err => {
-                        console.log(err);
-                        toast.error("Update Failed.");
+                        // console.log(err);
+                        err && toast.error("Update Failed.");
                     })
             })
             .catch(err => {
