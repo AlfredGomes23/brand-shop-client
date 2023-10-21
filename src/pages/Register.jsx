@@ -102,7 +102,6 @@ const Register = () => {
                         <SocialLink></SocialLink>
                         <p className="font-semibold">Have Account? <Link to='/login' className="link link-primary text-lg">Login Here</Link></p>
                     </div>
-
                 </div>
             </div>
         </div>

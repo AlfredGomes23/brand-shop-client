@@ -48,7 +48,6 @@ const BrandDetails = () => {
                     <h2 className='text-2xl text-center'>All Products</h2>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-base-200 gap-5 py-10 rounded-lg'>{
                         brandProducts.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
-
                     }</div>
                 </div>
         }

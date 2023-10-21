@@ -1,3 +1,4 @@
+
 /* eslint-disable react/prop-types */
 
 import { Link } from "react-router-dom";
@@ -18,7 +19,7 @@ const ProductCard = ({ product }) => {
                 <div className="flex justify-around mb-5 items-center">
                     <Link to={`/productDetails/${product._id}`} className="btn btn-primary">Details</Link>
                     <Link to={`/updateProduct/${product._id}`} className="btn btn-secondary">Update</Link>
-                    <span className="text-primary-focus border border-primary rounded-lg p-1">Rating: {product.rating}</span>
+                    <span className="text-amber-500 border border-primary rounded-lg p-1">Rating: {product.rating}</span>
                 </div>
             </div>
         </div>

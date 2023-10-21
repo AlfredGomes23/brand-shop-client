@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast"
+import toast from "react-hot-toast"
 
 const ProductDetails = () => {
     const [product, setProduct] = useState({});
@@ -43,10 +43,6 @@ const ProductDetails = () => {
                     <button onClick={handleAddCart} className="btn btn-accent">Add To Cart</button>
                 </div>
             </div>
-            <div><Toaster
-                position="top-right"
-                reverseOrder={false}
-            /></div>
         </div>
     );
 };

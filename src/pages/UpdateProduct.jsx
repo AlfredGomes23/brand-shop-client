@@ -1,4 +1,4 @@
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 
 
@@ -90,10 +90,6 @@ const UpdateProduct = () => {
                     </form>
                 </div>
             </div>
-            <div><Toaster
-                position="top-right"
-                reverseOrder={false}
-            /></div>
         </div>
     );
 };

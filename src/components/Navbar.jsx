@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
 import useMyContext from '../hooks/useMyContext';
@@ -22,14 +22,14 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOut()
-        .then(() => {
-            console.log("LogOut done.");
-            toast.success("LogOut Successful.");
-        })
-        .catch(err => {
-            console.log(err);
-            toast.error("LogOut Failed.");
-        })
+            .then(() => {
+                console.log("LogOut done.");
+                toast.success("LogOut Successful.");
+            })
+            .catch(err => {
+                console.log(err);
+                toast.error("LogOut Failed.");
+            })
     }
     return (
         <div className="navbar bg-base-100 flex justify-between font-semibold">
@@ -48,17 +48,19 @@ const Navbar = () => {
                     <Link to='/' className="normal-case text-2xl"><img className='w-48 rounded-lg' src="https://i.ibb.co/XDknKWL/Main-LOGO.png" alt="" /></Link>
                 </div>
             </div>
+
             {/* nav mid */}
             <div className="hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 space-x-3">
                     {links}
                 </ul>
             </div>
+
             {/* nav end */}
             <div className='space-x-3'>
-                <div onClick={() => setDarkMood(!darkMood)} className='text-3xl flex w-fit'>{
+                <div onClick={() => setDarkMood(!darkMood)} className='text-3xl flex w-fit btn'>{
                     darkMood ?
-                    <MdLightMode></MdLightMode>:
+                        <MdLightMode></MdLightMode> :
                         <MdDarkMode></MdDarkMode>
                 }</div>
                 <div className='menu'>{
@@ -73,15 +75,10 @@ const Navbar = () => {
                                 <li className='mx-auto text-2xl'>{user.displayName}</li>
                                 <li onClick={handleLogOut} className='btn btn-secondary'>Logout</li>
                             </ul>
-                        </div>:
+                        </div> :
                         <li><NavLink to='/login'>Login</NavLink></li>
                 }</div>
             </div>
-            <Toaster
-                position="top-center"
-                reverseOrder={false}
-                
-            />
         </div>
 
     );

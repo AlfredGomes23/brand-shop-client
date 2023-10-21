@@ -1,4 +1,4 @@
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
@@ -107,10 +107,6 @@ const AddProduct = () => {
                     </form>
                 </div>
             </div>
-            <div><Toaster
-                position="top-right"
-                reverseOrder={true}
-            /></div>
         </div>
     );
 };

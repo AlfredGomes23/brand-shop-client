@@ -1,4 +1,3 @@
-import { Toaster } from "react-hot-toast";
 import useMyContext from "../hooks/useMyContext";
 import { Navigate,  useLocation } from "react-router-dom";
 
@@ -17,9 +16,7 @@ const PrivateRoute = ({ children }) => {
     
     if (user) {
         return <>
-            <div>
-                <Toaster position="top-right" reverseOrder={true} />
-            </div>
+            
             {children}
         </>
     }
