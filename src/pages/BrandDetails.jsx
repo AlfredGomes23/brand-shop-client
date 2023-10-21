@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import ProductCard from '../components/ProductCard';
 import Slider from '../components/Slider';
 
+import { Helmet } from "react-helmet-async";
+
 
 const BrandDetails = () => {
     let [brand, setBrand] = useState({});
@@ -38,7 +40,11 @@ const BrandDetails = () => {
     //         <p className="text-2xl">Loading...</p>
     //     </h1>;
     return (
-        <div data-aos="zoom-in">{
+        <div data-aos="zoom-in">
+            <Helmet>
+                <title>{brand.brand_name}</title>
+            </Helmet>
+            {
             brandProducts.length == 0 ?
                 <div>
                     <h1 className='text-4xl font-semibold text-center'>{brand.brand_name}</h1>

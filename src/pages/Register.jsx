@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
@@ -50,6 +51,9 @@ const Register = () => {
     }
     return (
         <div className="hero min-h-screen bg-base-200 rounded-xl">
+            <Helmet>
+                <title>Register</title>
+            </Helmet>
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register now!</h1>

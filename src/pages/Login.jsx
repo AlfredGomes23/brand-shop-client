@@ -5,6 +5,7 @@ import useMyContext from "../hooks/useMyContext";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
@@ -45,6 +46,10 @@ const Login = () => {
     }
     return (
         <div className="hero min-h-screen bg-base-200 rounded-lg">
+
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>

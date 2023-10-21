@@ -8,7 +8,6 @@ export default {
     extend: {
       fontFamily:{
         inter:"Inter",
-        logo:'Pacifico'
       },
     },
   },

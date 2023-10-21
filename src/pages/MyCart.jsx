@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import swal from 'sweetalert';
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -50,6 +51,9 @@ const MyCart = () => {
     return (
         <div>
             <h1 className="text-accent text-4xl mb-10 text-center">Your Products:</h1>
+            <Helmet>
+                <title>Cart</title>
+            </Helmet>
             {/* cards */}
             {
                 products.length == 0 ?
