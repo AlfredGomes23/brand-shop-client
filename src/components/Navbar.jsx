@@ -7,7 +7,12 @@ import useMyContext from '../hooks/useMyContext';
 
 const Navbar = () => {
     const { user, logOut } = useMyContext();
+
+    //theme toggle
     const [darkMood, setDarkMood] = useState(true);
+    const website = document.getElementById('html');
+    if (darkMood) website.setAttribute('data-theme', 'dark');
+    else website.setAttribute('data-theme', 'light');
 
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -53,8 +58,8 @@ const Navbar = () => {
             <div className='space-x-3'>
                 <div onClick={() => setDarkMood(!darkMood)} className='text-3xl flex w-fit'>{
                     darkMood ?
-                        <MdDarkMode></MdDarkMode> :
-                        <MdLightMode></MdLightMode>
+                    <MdLightMode></MdLightMode>:
+                        <MdDarkMode></MdDarkMode>
                 }</div>
                 <div className='menu'>{
                     user ?
